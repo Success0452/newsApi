@@ -1,3 +1,4 @@
+require('dotenv').config();
 var _ = require('lodash');
 const nodemailer = require('nodemailer');
 
@@ -5,16 +6,16 @@ var config = {
     host: 'smtp.gmail.com',
     port: 587,
     auth: {
-        user : 'olatundesuccess54@gmail.com',
-        pass : 'wizziydhino1'
+        user :  process.env.EMAIL,
+        pass :  process.env.PASSWORD
     }
 }
 
 var transporter = nodemailer.createTransport(config);
 
 var defaultMail = {
-    from: 'olatundesuccess54@gmail.com',
-    text: 'test test'
+    from:  process.env.EMAIL,
+    text:  process.env.TEST
 }
 
 const send = (to, subject, html) => {

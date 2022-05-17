@@ -1,5 +1,5 @@
 const express = require('express')
-const UserRoute = express.Router();
+const userRoute = express.Router();
 const protect = require('../middleware/auth-middleware')
 
 const {
@@ -10,10 +10,10 @@ const {
     updateUserProfile
 } = require('../controller/auth')
 
-UserRoute.route('/auth/register').post(registerUser);
-UserRoute.route('/users/active/:activeToken').get(activateToken);
-UserRoute.route('/auth/login').post(authUser)
-UserRoute.route('/users/profile').get(protect, getProfile).patch( protect, updateUserProfile)
+userRoute.route('/auth/register').post(registerUser);
+userRoute.route('/users/active/:activeToken').get(activateToken);
+userRoute.route('/auth/login').post(authUser)
+userRoute.route('/users/profile').get(protect, getProfile).patch( protect, updateUserProfile)
 
 
-module.exports = UserRoute;
+module.exports = userRoute;

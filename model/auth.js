@@ -30,7 +30,7 @@ const UserSchema = new mongoose.Schema({
         default: false,
     },
     activeToken: String,
-    activeExpires: String
+    activeExpires: Date
 })
 
 UserSchema.methods.matchPassword = async function(password){
